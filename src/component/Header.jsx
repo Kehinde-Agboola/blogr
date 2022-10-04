@@ -3,6 +3,7 @@ import Fetch from "./data/Fetch";
 import Buttons from "./Buttons";
 import logo from "../images/logo.svg";
 import close from "../images/icon-close.svg";
+import "./style.css";
 import open from "../images/icon-hamburger.svg";
 import Menu from "./Menu";
 import { NavLink } from "react-router-dom";
@@ -10,18 +11,14 @@ const Header = () => {
   const [navLinks, setNavLinks] = useState(Fetch);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <navbar className="w-full flex py-6 items-center absolute">
-      <div className="">
+    <navbar className="w-full flex py-6 px-6 md:px-0 items-center absolute">
+      <div className="md:w-full md:flex md:items-center md:justify-around">
         <div>
-          <img
-            src={logo}
-            alt="Blogr"
-            className="w-[124px] h-[32px] mr-10 ml-10"
-          />
+          <img src={logo} alt="Blogr" className="w-[124px] h-[32px] ml-10" />
         </div>
         {/* <img src={logo} alt="Blogr" className="w-[124px] h-[32px]" /> */}
-        <nav className="">
-          <ul className="sm:flex hidden justify-end items-center">
+        <nav className="navbar md:flex hidden">
+          <ul className="flex">
             {navLinks.map((nav, index) => (
               <li
                 key={index}
@@ -34,7 +31,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <div className="">
+        <div className="hidden md:block">
           <Buttons />
         </div>
       </div>
